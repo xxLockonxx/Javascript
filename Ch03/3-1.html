@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-1</title>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script>
+        // 자바스크립트 방식
+        window.onload = function(){
+            var city = document.getElementById('city');
+            var li = city.getElementsByTagName('li');
+            li[0].style.color = 'red';
+        }
+
+        // 제이쿼리 방식
+        $(function(){
+
+            $('#city > li:nth-child(4)').css('color', 'blue');
+            $('li:nth-child(2)').css('background', 'green');
+        });
+
+
+    </script>
+</head>
+<body>
+    <h3>1.제이쿼리</h3>
+
+    <ul id="city">
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+</body>
+</html>
