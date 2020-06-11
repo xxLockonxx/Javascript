@@ -54,11 +54,15 @@
 
             // 이벤트 전파
             $('a').click(function(e){
-                e.stopPropagation();
+                e.stopPropagation(); // 인접한 태그로 이벤트 전파 차단
+                e.preventDefault(); // 태그의 기본기능을 차단
                 alert('a 클릭!');
+
+                return false; // 이벤트 전파차단 + 기본기능 금지
             });
             
             $('.box3').click(function(e){
+                e.stopPropagation();
                 alert('box3 클릭!');
             });
                 
@@ -94,7 +98,7 @@
     <div class="box1">
         <div class="box2">
             <div class="box3">
-                <a href="http://www.naver.com">naver</a>
+                <a href="http://naver.com">naver</a>
             </div>
         </div>
     </div>
