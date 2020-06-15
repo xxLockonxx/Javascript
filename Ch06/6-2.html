@@ -55,14 +55,14 @@
             });
             
             button.eq(4).click(function(){
-                box3.animate({
+                box3.stop().animate({
                     'height':'0px',
                     'opacity':'0'
                 }, 1000);
             });
             
             button.eq(5).click(function(){
-                box3.animate({
+                box3.stop().animate({
                     'height':'200px',
                     'opacity':'1'
                 }, 1000);
@@ -73,10 +73,10 @@
             button.eq(6).click(function(){
                 
                 if(isOpen){
-                    box3.animate({'height':'0px', 'opacity':'0'});
+                    box3.stop().animate({'height':'0px', 'opacity':'0'});
                     isOpen = false;
                 }else{
-                    box3.animate({'height':'200px','opacity':'1'});
+                    box3.stop().animate({'height':'200px','opacity':'1'});
                     isOpen = true;
                 }
                 
