@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function(){
+
+            var table = $('table');
+
+            $('button').click(function(){
+
+                $.ajax({
+                    url: 'http://localhost:8080/DataToJs/xml2.jsp',
+                    type: 'get',
+                    dataType: 'xml',
+                    success: function(data){
+
+                      
+                        var members = $(data).find('members');
+
+                        members.children().each(function(){
+                            var uid   = $(this).find('uid').text();
+                            var name  = $(this).find('name').text();
+                            var hp    = $(this).children().eq(2).text();
+                            var pos   = $(this).children().eq(3).text();
+                            var dep   = $(this).children().eq(4).text();
+                            var rdate = $(this).children().eq(5).text();
+
+                            table.append('<tr></tr>');
+                            table.find("tr").last().append('<td>'+uid+'</td');
+                            table.find("tr").last().append('<td>'+name+'</td');
+                            table.find("tr").last().append('<td>'+hp+'</td');
+                            table.find("tr").last().append('<td>'+pos+'</td');
+                            table.find("tr").last().append('<td>'+dep+'</td');
+                            table.find("tr").last().append('<td>'+rdate+'</td');
+
+
+                        });
+                    }  
+
+                });
+            });
+
+
+
+
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+    <h3>5.XML 데이터 가져오기</h3>
+    <button>데이터 출력하기</button>
+    <table border="1">
+        <tr>
+            <td>아이디</td>
+            <td>이름</td>
+            <td>휴대폰</td>
+            <td>직급</td>
+            <td>부서</td>
+            <td>입사일</td>
+        </tr>
+
+
+    </table>
+    
+</body>
+</html>

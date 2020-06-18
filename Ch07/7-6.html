@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function(){
+
+            $('.btn1').click(function(){
+
+                $.get('http://localhost:8080/DataToJs/json2.jsp', function(data){
+
+
+                    for(var i in data){ 
+
+                    console.log('-------------------');
+                    console.log(data[i].uid);
+                    console.log(data[i].name);
+                    console.log(data[i].hp);
+                    console.log(data[i].pos);
+                    }
+                    
+                    
+
+                });
+            });
+
+            $('.btn2').click(function(){
+
+                var jason = {
+                    'uid': 'p101',
+                    'name': '홍실동',
+                    'hp' : '010-2111-9378',
+                    'age' : 21
+                };
+            
+                $.post('http://localhost:8080/DataToJs/json3.jsp', json, function(data){
+
+                    if(data.result == 1 ){
+                        alert('데이터 저장 완료!');
+                    }else{
+                        alert('데이터 저장 실패!');
+                    }
+                });
+
+                
+            });
+
+
+        });
+
+
+
+    </script>
+    
+</head>
+<body>
+    <h3>6.GET, POST함수</h3>
+    <button class = "btn1">GET 데이터 요청</button>
+    <button class = "btn2">POST 처리 요청</button>
+</body>
+</html>
