@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8-2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+        $('.slider1').bxSlider({
+            slideWidth: 280,
+            pager : false,
+            controls : false,
+            auto : true,
+            speed : 100,
+            pause : 500,
+            mode: 'vertical'
+        });
+
+        $('.slider2').bxSlider({
+            slideWidth: 1000,
+            pager : false,
+            controls : false,
+            auto : true,
+            speed : 3000,       
+            pause : 3000,
+        });
+    });
+    </script>
+    <style>
+        /* bxSlider 커스텀 */
+        .bx-wrapper {
+            box-shadow: none;
+            border: 5px solid #fff;
+            background: #fff;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>2.bxSlider 플러그인</h3>
+
+    <div class="slider1">
+        <div><img src="./img/1.jpg" alt=""></div>
+        <div><img src="./img/2.jpg" alt=""></div>
+        <div><img src="./img/3.jpg" alt=""></div>
+    </div>
+    <div class="slider2">
+        <div><img src="./img/slider1.jpg" alt=""></div>
+        <div><img src="./img/slider2.jpg" alt=""></div>
+        <div><img src="./img/slider3.jpg" alt=""></div>
+    </div>
+
+</body>
+</html>
